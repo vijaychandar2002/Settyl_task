@@ -161,12 +161,12 @@ encoder = joblib.load('encoder.joblib')
 app = FastAPI()
 
 class Item(BaseModel):
-  description: str
+  externalStatus: str
 
 @app.post("/predict/")
 async def predict(item: Item):
   # Preprocess the input
-  processed_input = tokenizer.texts_to_sequences([item.description])
+  processed_input = tokenizer.texts_to_sequences([item.externalStatus])
   processed_input = pad_sequences(processed_input, padding='post')
 
   # Make prediction
@@ -222,7 +222,7 @@ Enter the external status description in the following format:
 ```JSON
 
 {
-    "description": "PORT OUT"
+    "externalStatus": "PORT OUT"
 }
 ```
 
