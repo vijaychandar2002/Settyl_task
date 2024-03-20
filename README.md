@@ -134,6 +134,7 @@ async def predict(item: Item):
   processed_output = encoder.inverse_transform(predicted_label)
 
   return {"internalStatus": processed_output[0]}
+```
 
 ## To run the API, follow these steps:
 
