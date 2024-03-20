@@ -10,17 +10,61 @@ The project is organized into five Python files:
 - `evaluate.py`: Contains code for evaluating the models.
 - `models.py`: Contains the code for the different models.
 
+# Transformer Model for Status Prediction
+
+This project uses a Transformer model to predict internal status labels based on external status descriptions. The model is implemented using the TensorFlow library.
+
+## Dataset
+
+The dataset is a JSON file hosted on GitHub, which can be found [here]{https://gist.github.com/farhaan-settyl/ecf9c1e7ab7374f18e4400b7a3d2a161}. It contains pairs of external status descriptions and corresponding internal status labels. Here's an example of what the data looks like:
+
+```json
+[
+  {
+    "externalStatus": "PORT OUT",
+    "internalStatus": "Port Out"
+  },
+  {
+    "externalStatus": "TERMINAL IN",
+    "internalStatus": "Inbound Terminal"
+  },
+  ...
+]
+```
+
+Each object in the array represents a status update, with an externalStatus field that contains the status description visible to the customer, and an internalStatus field that contains the corresponding internal status label.
+
+## Code
+
+The code for this project is divided into several parts:
+
+- Data Preprocessing: The preprocess_data function tokenizes the ‘externalStatus’ column and encodes the ‘internalStatus’ column. It then splits the data into training and test sets and saves the tokenizer and encoder for later use.
+- Model Definition: The transformer_encoder function defines a single layer of a Transformer encoder. The create_transformer_model function builds the Transformer model using the previously defined encoder layer.
+- Model Training: The train_model function trains the model using Stratified K-Fold cross-validation. This method ensures that each fold of the training data has the same proportion of samples from each class, which is important for imbalanced datasets.
+
 ## Model Comparison
 
-Several machine learning models were evaluated, including SVM, Decision Tree, Random Forest, LSTM, CNN, and a Transformer model. Each model was trained on the same dataset and evaluated using the same metrics.
-
-The Transformer model was found to be the most effective, despite being more complex and slower than the other models. This suggests that the Transformer model's ability to handle long-term dependencies in the data is crucial for this task.
+Several machine learning models were evaluated, including SVM, Decision Tree, Random Forest, LSTM, CNN, and a Transformer model. Each model was trained on the same dataset and evaluated using the same metrics. The Transformer model was found to be the most effective, despite being more complex and slower than the other models. This suggests that the Transformer model's ability to handle long-term dependencies in the data is crucial for this task.
 
 ## Overfitting Prevention
 
 To prevent overfitting, Stratified K-Fold cross-validation was used during model training. This ensures that the model is not overly fitted to the training data and can generalize well to unseen data.
 
 ## Model Saving and Training
+
+To train the model, you need to run the `main.py` script. This script uses functions from the other Python files in the project to preprocess the data, train the model, and evaluate its performance.
+
+Here are the steps to train the model:
+
+1. Ensure that you have all the necessary Python packages installed. You can install the required packages using the command: `pip install -r requirements.txt`
+
+2. Change your current directory to the directory containing `main.py` using the command: `cd path_to_directory`
+
+3. Run the `main.py` script using the command: `python main.py`
+
+This will start the training process. The script will output the performance of the model after the training is complete.
+
+Please replace `path_to_directory` with the actual path to the directory containing `main.py`.
 
 After training, the model and its weights are saved for later use. This allows the model to be loaded quickly without needing to be retrained. The model is saved using the following code:
 
