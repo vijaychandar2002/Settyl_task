@@ -198,3 +198,33 @@ Replace "PORT OUT" with your actual description. The API will return the predict
 ## Testing the endpoint in Postman
 
 ![postman](./src/image1.png)
+
+## Check out the deployed version of the app
+
+The API accepts POST requests with the external status description in the body. 
+
+1. Open Postman or any other API testing tool.
+2. Set the request method to POST.
+3. Enter the API URL: https://settyl-task.onrender.com/predict/
+4. In the “Body” section, select “raw” and “JSON”.
+
+Here’s an example of how you can use it:
+
+Enter the external status description in the following format:
+
+```JSON
+
+{
+    "description": "PORT OUT"
+}
+```
+
+AI-generated code. Review and use carefully. More info on FAQ.
+Click “Send”. The API will return the predicted internal status:
+
+```JSON
+
+{
+    "internalStatus": "Port Out"
+}
+```
