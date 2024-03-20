@@ -182,6 +182,8 @@ async def predict(item: Item):
 ## Testing this API on FastAPI /docs route and Postman
 
 ![docsroute](./src/image0.png)
+
+
 ![postman](./src/image1.png)
 
 ## To run the API, follow these steps
