@@ -44,59 +44,17 @@ The Transformer model achieved the highest scores on all four metrics, indicatin
 
 # API Development
 
-
 The API is developed using the FastAPI framework. It accepts external status descriptions as input and returns the predicted internal status labels. 
 
 The API code is as follows:
 
-```python
-from fastapi import FastAPI
-from pydantic import BaseModel
-import tensorflow as tf
-import numpy as np
-import joblib
-from tensorflow.keras.preprocessing.sequence import pad_sequences
-from tensorflow.keras.preprocessing.text import Tokenizer
-from sklearn.preprocessing import LabelEncoder
+## To run the API, follow these steps:
 
-# Define your custom function
-def transformer_encoder(inputs, head_size, num_heads, ff_dim, dropout=0):
-  ...
-  return x + res
-
-# Define your model architecture
-def create_transformer_model(num_classes):
-  ...
-  return model
-
-# Define the number of unique classes in your data
-num_classes = 15
-
-# Create the model
-model = create_transformer_model(num_classes)
-
-# Load your saved weights into the model
-model.load_weights('transformer_weights.h5')
-
-# Load your tokenizer and encoder
-tokenizer = joblib.load('tokenizer.joblib')
-encoder = joblib.load('encoder.joblib')
-
-app = FastAPI()
-
-class Item(BaseModel):
-  description: str
-
-@app.post("/predict/")
-async def predict(item: Item):
-  ...
-  return {"internalStatus": processed_output[0]}
-
-## Running the API
-To run the API, follow these steps:
-
-Change your current directory to Settyl_task/API using the command: cd Settyl_task/API
-Install the required dependencies using the command: pip install -r requirements.txt
-Run the API using a suitable command depending on how you have set up your environment. If you’re using uvicorn, for example, the command would be: uvicorn main:app --reload
-The API will be running at localhost:8000 (if you’re using uvicorn). You can check the results at the /predict route by sending a POST request using curl or Postman.
+1. Change your current directory to Settyl_task/API using the command: `cd Settyl_task/API`
+2. Install the required dependencies using the command: `pip install -r requirements.txt`
+3. Run the API using a suitable command depending on how you have set up your environment. If you’re using uvicorn, for example, the command would be: `uvicorn main:app --reload`
+4. The API will be running at localhost:8000 (if you’re using uvicorn). You can check the results at the /predict route by sending a POST request using curl or Postman.
 Here’s an example of how to send a POST request:
+`curl -X POST "http://localhost:8000/predict/" -H  "accept: application/json" -H  "Content-Type: application/json" -d "{\"description\":\"PORT OUT\"}"`
+
+Replace "PORT OUT" with your actual description. The API will return the predicted internal status.
