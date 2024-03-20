@@ -16,7 +16,7 @@ This project uses a Transformer model to predict internal status labels based on
 
 ## Dataset
 
-The dataset is a JSON file hosted on GitHub, which can be found [here]{https://gist.github.com/farhaan-settyl/ecf9c1e7ab7374f18e4400b7a3d2a161}. It contains pairs of external status descriptions and corresponding internal status labels. Here's an example of what the data looks like:
+The dataset is a JSON file hosted on GitHub, which can be found [here](https://gist.github.com/farhaan-settyl/ecf9c1e7ab7374f18e4400b7a3d2a161). It contains pairs of external status descriptions and corresponding internal status labels. Here's an example of what the data looks like:
 
 ```json
 [
@@ -28,7 +28,6 @@ The dataset is a JSON file hosted on GitHub, which can be found [here]{https://g
     "externalStatus": "TERMINAL IN",
     "internalStatus": "Inbound Terminal"
   },
-  ...
 ]
 ```
 
