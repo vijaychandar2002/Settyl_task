@@ -6,6 +6,7 @@ import joblib
 from tensorflow.keras.preprocessing.sequence import pad_sequences
 from tensorflow.keras.preprocessing.text import Tokenizer
 from sklearn.preprocessing import LabelEncoder
+from fastapi.responses import HTMLResponse
 
 # Define your custom function
 def transformer_encoder(inputs, head_size, num_heads, ff_dim, dropout=0):
@@ -88,4 +89,31 @@ async def predict(item: Item):
   processed_output = encoder.inverse_transform(predicted_label)
 
   return {"internalStatus": processed_output[0]}
+
+@app.get("/predict/", response_class=HTMLResponse)
+def read_root():
+    return """
+    <html>
+        <head>
+            <title>My FastAPI Application</title>
+        </head>
+        <body>
+            <h1>Welcome to my FastAPI application!</h1>
+            <p>Use a POST request to /predict to get predictions.</p>
+        </body>
+    </html>
+    """
+@app.get("/", response_class=HTMLResponse)
+def read_root():
+    return """
+    <html>
+        <head>
+            <title>My FastAPI Application</title>
+        </head>
+        <body>
+            <h1>Welcome to my FastAPI application!</h1>
+            <p>Use a POST request to /predict to get predictions.</p>
+        </body>
+    </html>
+    """
 
