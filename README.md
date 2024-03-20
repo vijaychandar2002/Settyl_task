@@ -66,4 +66,4 @@ async def predict(item: Item):
 
 To install the necessary dependencies, you can use the requirements.txt file:
 
-```pip install -r requirements.txt
+```pip install -r requirements.txt```
