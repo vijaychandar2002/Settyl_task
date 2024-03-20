@@ -181,8 +181,8 @@ async def predict(item: Item):
 
 ## Testing this API on FastAPI /docs route and Postman
 
-![/docs-route]([http://url/to/img.png](https://media.discordapp.net/attachments/781595832570609748/1219957482915369010/image.PNG?ex=660d30f1&is=65fabbf1&hm=d7440b173c69e8c41b1ac387d005bc76a430c04968c25a1ce67ac6c971e5edc8&=&format=webp&quality=lossless&width=1211&height=572))
-![postman]([http://url/to/img.png](https://media.discordapp.net/attachments/781595832570609748/1219957482525425735/image1.png?ex=660d30f1&is=65fabbf1&hm=07054b164960f9936567a89e02eea17df450a6e94d6848b51a20fc9ec1c865a4&=&format=webp&quality=lossless&width=1211&height=513))
+![/docs-route](./src/image0.png)
+![postman](./src/image1.png)
 
 ## To run the API, follow these steps
 
