@@ -204,6 +204,10 @@ Replace "PORT OUT" with your actual description. The API will return the predict
 Deployed Version
 You can check out the deployed version of the app [here](https://settyl-task.onrender.com/predict/).
 
+## Note on Application Responsiveness
+
+This application is deployed on the free tier of Render.com. Please note that due to resource management on free tiers, the application may enter a sleep mode during periods of inactivity. When a new request is made after a period of inactivity, it can take up to 50 seconds for the resources to spin up and for the application to become responsive again. This is a characteristic of the hosting platform and not a reflection of the application’s performance or efficiency.
+
 The API accepts POST requests with the external status description in the body. 
 
 1. Open Postman or any other API testing tool.
