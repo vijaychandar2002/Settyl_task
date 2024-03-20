@@ -179,13 +179,6 @@ async def predict(item: Item):
   return {"internalStatus": processed_output[0]}
 ```
 
-## Testing this API on FastAPI /docs route and Postman
-
-![docsroute](./src/image0.png)
-
-
-![postman](./src/image1.png)
-
 ## To run the API, follow these steps
 
 1. Change your current directory to Settyl_task/API using the command: `cd Settyl_task/API`
@@ -196,3 +189,12 @@ Here’s an example of how to send a POST request:
 `curl -X POST "http://localhost:8000/predict/" -H  "accept: application/json" -H  "Content-Type: application/json" -d "{\"description\":\"PORT OUT\"}"`
 
 Replace "PORT OUT" with your actual description. The API will return the predicted internal status.
+
+
+## Testing the endpoint in /docs route of FastAPI 
+
+![docsroute](./src/image0.png)
+
+## Testing the endpoint in Postman
+
+![postman](./src/image1.png)
