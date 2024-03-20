@@ -90,29 +90,40 @@ async def predict(item: Item):
 
   return {"internalStatus": processed_output[0]}
 
+@app.get("/", response_class=HTMLResponse)
 @app.get("/predict/", response_class=HTMLResponse)
 def read_root():
     return """
     <html>
         <head>
             <title>My FastAPI Application</title>
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                    margin: 0;
+                    padding: 0;
+                    background-color: #f0f0f0;
+                }
+                .container {
+                    width: 80%;
+                    margin: auto;
+                    background-color: #fff;
+                    padding: 20px;
+                    box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
+                }
+                h1 {
+                    color: #333;
+                }
+                p {
+                    color: #666;
+                }
+            </style>
         </head>
         <body>
-            <h1>Welcome to my FastAPI application!</h1>
-            <p>Use a POST request to /predict to get predictions.</p>
-        </body>
-    </html>
-    """
-@app.get("/", response_class=HTMLResponse)
-def read_root():
-    return """
-    <html>
-        <head>
-            <title>My FastAPI Application</title>
-        </head>
-        <body>
-            <h1>Welcome to my FastAPI application!</h1>
-            <p>Use a POST request to /predict to get predictions.</p>
+            <div class="container">
+                <h1>Welcome to my FastAPI application!</h1>
+                <p>Use a POST request to /predict to get predictions.</p>
+            </div>
         </body>
     </html>
     """
