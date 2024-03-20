@@ -45,7 +45,7 @@ The Transformer model achieved the highest scores on all four metrics, indicatin
 # API Development
 
 The API is developed using the FastAPI framework. It accepts external status descriptions as input and returns the predicted internal status labels. The API code is as follows:
-'''
+
 from fastapi import FastAPI
 from pydantic import BaseModel
 ...
@@ -59,7 +59,7 @@ class Item(BaseModel):
 async def predict(item: Item):
   ...
   return {"internalStatus": processed_output[0]}
-'''
+
   
 ## Installation
 
