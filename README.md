@@ -201,6 +201,9 @@ Replace "PORT OUT" with your actual description. The API will return the predict
 
 ## Check out the deployed version of the app
 
+Deployed Version
+You can check out the deployed version of the app [here](https://settyl-task.onrender.com/predict/).
+
 The API accepts POST requests with the external status description in the body. 
 
 1. Open Postman or any other API testing tool.
@@ -228,3 +231,4 @@ Click “Send”. The API will return the predicted internal status:
     "internalStatus": "Port Out"
 }
 ```
+![postmanOP](./src/image2.png)
